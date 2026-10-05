@@ -15,30 +15,30 @@ jobs:
 
     - name: Download PHP Desktop
       run: |
-        Invoke-WebRequest -Uri "https://github.com/cztomczak/phpdesktop/releases/download/chrome-v72.1-rc/phpdesktop-chrome-72.1-php-7.1.33.zip" -OutFile phpdesktop.zip
+        Invoke-WebRequest -Uri "https://github.com/cztomczak/phpdesktop/releases/download/chrome-v130.1/phpdesktop-chrome-130.1-php-8.3.zip" -OutFile phpdesktop.zip
         Expand-Archive -Path phpdesktop.zip -DestinationPath .\phpdesktop
         Remove-Item phpdesktop.zip
 
     - name: Prepare Application Bundle
       run: |
         # Remove default www directory
-        Remove-Item -Recurse -Force .\phpdesktop\phpdesktop-chrome-72.1-php-7.1.33\www
+        Remove-Item -Recurse -Force .\phpdesktop\phpdesktop-chrome-130.1-php-8.3\www
         
         # Create new www directory and copy ConRQ files
-        New-Item -ItemType Directory -Force -Path .\phpdesktop\phpdesktop-chrome-72.1-php-7.1.33\www
+        New-Item -ItemType Directory -Force -Path .\phpdesktop\phpdesktop-chrome-130.1-php-8.3\www
         
         # Copy necessary app files to www (excluding build tools)
         $exclude = @("github_trending", ".github", ".git", "phpdesktop", "php-desktop-settings.json")
-        Get-ChildItem -Exclude $exclude | Copy-Item -Destination .\phpdesktop\phpdesktop-chrome-72.1-php-7.1.33\www -Recurse -Container
+        Get-ChildItem -Exclude $exclude | Copy-Item -Destination .\phpdesktop\phpdesktop-chrome-130.1-php-8.3\www -Recurse -Container
         
         # Apply secure configuration settings
-        Copy-Item -Path .\php-desktop-settings.json -Destination .\phpdesktop\phpdesktop-chrome-72.1-php-7.1.33\settings.json -Force
+        Copy-Item -Path .\php-desktop-settings.json -Destination .\phpdesktop\phpdesktop-chrome-130.1-php-8.3\settings.json -Force
 
     - name: Compile and Bundle into Single Executable (SFX)
       run: |
         # Using 7zip to create an SFX archive that extracts to a secure temporary directory and runs silently
         # This protects raw assets from being visible in the deployed folder structure.
-        cd .\phpdesktop\phpdesktop-chrome-72.1-php-7.1.33
+        cd .\phpdesktop\phpdesktop-chrome-130.1-php-8.3
         
         # Download standard 7z SFX module
         Invoke-WebRequest -Uri "https://raw.githubusercontent.com/chrisant996/7z-sfx/master/7zS.sfx" -OutFile 7zS.sfx
