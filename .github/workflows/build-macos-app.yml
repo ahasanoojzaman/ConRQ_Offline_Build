@@ -31,7 +31,7 @@ jobs:
       run: |
         # Download a standalone static PHP binary so the user does not need PHP installed on their Mac
         cd macos-app/php-bin
-        curl -L -o php.tar.gz "https://github.com/crazywhalecc/static-php-cli/releases/download/2.2.1/spc-macos-x86_64.tar.gz"
+        curl -L -o php.tar.gz "https://dl.static-php.dev/static-php-cli/bulk/php-8.2.14-cli-macos-x86_64.tar.gz"
         tar -xzf php.tar.gz
         rm php.tar.gz
         chmod +x php
