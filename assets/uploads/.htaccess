@@ -1,0 +1,4 @@
+# Allow static files, block script execution
+<FilesMatch "\.(php|phtml|php\d)$">
+  Require all denied
+</FilesMatch>

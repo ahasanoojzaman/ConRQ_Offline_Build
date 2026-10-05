@@ -1,0 +1,33 @@
+{
+    "main_window": {
+        "title": "ConRQ App",
+        "icon": "",
+        "default_size": [1024, 768],
+        "minimum_size": [800, 600],
+        "disable_resize": false,
+        "disable_maximize": false,
+        "center_on_screen": true,
+        "start_maximized": false,
+        "start_fullscreen": false
+    },
+    "web_server": {
+        "listen_on": ["127.0.0.1", 0],
+        "www_directory": "www",
+        "index_files": ["index.php", "index.html"],
+        "cgi_interpreter": "php/php-cgi.exe",
+        "cgi_temp_dir": "",
+        "404_handler": "/index.php"
+    },
+    "chrome": {
+        "log_file": "debug.log",
+        "log_severity": "info",
+        "enable_webgl": true,
+        "context_menu": {
+            "enable_menu": false
+        }
+    },
+    "application": {
+        "single_instance_guid": "conrq-app-v1-instance",
+        "dpi_aware": true
+    }
+}

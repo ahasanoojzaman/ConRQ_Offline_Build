@@ -1,0 +1,40 @@
+{
+  "name": "conrq-macos",
+  "version": "1.0.0",
+  "description": "ConRQ macOS Desktop App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder -m dmg"
+  },
+  "build": {
+    "appId": "com.krenx.conrq",
+    "productName": "ConRQ",
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.business"
+    },
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "extraResources": [
+      {
+        "from": "php-bin",
+        "to": "php-bin",
+        "filter": ["**/*"]
+      }
+    ],
+    "files": [
+      "**/*",
+      "!php-bin${/*}",
+      "!dist${/*}"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^29.1.0",
+    "electron-builder": "^24.13.3"
+  }
+}

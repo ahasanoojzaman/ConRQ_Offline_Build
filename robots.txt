@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /app/
+Disallow: /admin/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /database/
+Disallow: /storage/
+Disallow: /login.php
+Disallow: /logout.php
+
+Sitemap: https://conrq.krenx.in/sitemap.xml

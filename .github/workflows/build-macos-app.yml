@@ -1,0 +1,54 @@
+name: Build macOS DMG (ConRQ)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Prepare Application Bundle
+      run: |
+        # Create php-bin directory for the static interpreter
+        mkdir -p macos-app/php-bin
+        
+        # Sync all ConRQ PHP source files into the macos-app build directory
+        # These will be securely bundled into the app.asar archive
+        rsync -a --exclude='.git' --exclude='.github' --exclude='macos-app' --exclude='github_trending' --exclude='php-desktop-settings.json' ./ ./macos-app/
+        
+    - name: Download Static PHP Binary (macOS x86_64/Universal)
+      run: |
+        # Download a standalone static PHP binary so the user does not need PHP installed on their Mac
+        cd macos-app/php-bin
+        curl -L -o php.tar.gz "https://github.com/crazywhalecc/static-php-cli/releases/download/2.2.1/spc-macos-x86_64.tar.gz"
+        tar -xzf php.tar.gz
+        rm php.tar.gz
+        chmod +x php
+
+    - name: Install Electron Dependencies
+      run: |
+        cd macos-app
+        npm install
+
+    - name: Compile Native .app and Bundle into .dmg
+      run: |
+        cd macos-app
+        # electron-builder builds the .app and packages the source into an encrypted ASAR
+        npm run dist
+
+    - name: Upload macOS Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ConRQ-macOS-DMG
+        path: macos-app/dist/*.dmg

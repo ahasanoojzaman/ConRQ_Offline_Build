@@ -1,0 +1,76 @@
+[01-Aug-2026 21:01:10 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wqftutpg_conrq.admin_users' doesn't exist in /home/wqftutpg/conrq.krenx.in/includes/auth.php:76
+Stack trace:
+#0 /home/wqftutpg/conrq.krenx.in/includes/auth.php(76): PDO->prepare()
+#1 /home/wqftutpg/conrq.krenx.in/admin/login.php(13): Auth::adminAttempt()
+#2 {main}
+  thrown in /home/wqftutpg/conrq.krenx.in/includes/auth.php on line 76
+[01-Aug-2026 21:05:02 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wqftutpg_conrq.plans' doesn't exist in /home/wqftutpg/conrq.krenx.in/database/seed.php:31
+Stack trace:
+#0 /home/wqftutpg/conrq.krenx.in/database/seed.php(31): PDO->query('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/wqftutpg/conrq.krenx.in/database/seed.php on line 31
+[01-Aug-2026 21:05:46 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wqftutpg_conrq.admin_users' doesn't exist in /home/wqftutpg/conrq.krenx.in/includes/auth.php:76
+Stack trace:
+#0 /home/wqftutpg/conrq.krenx.in/includes/auth.php(76): PDO->prepare()
+#1 /home/wqftutpg/conrq.krenx.in/admin/login.php(13): Auth::adminAttempt()
+#2 {main}
+  thrown in /home/wqftutpg/conrq.krenx.in/includes/auth.php on line 76
+[01-Aug-2026 21:06:21 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wqftutpg_conrq.admin_users' doesn't exist in /home/wqftutpg/conrq.krenx.in/includes/auth.php:76
+Stack trace:
+#0 /home/wqftutpg/conrq.krenx.in/includes/auth.php(76): PDO->prepare()
+#1 /home/wqftutpg/conrq.krenx.in/admin/login.php(13): Auth::adminAttempt()
+#2 {main}
+  thrown in /home/wqftutpg/conrq.krenx.in/includes/auth.php on line 76
+[01-Aug-2026 21:10:59 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away in /home/wqftutpg/conrq.krenx.in/database/seed.php:57
+Stack trace:
+#0 /home/wqftutpg/conrq.krenx.in/database/seed.php(57): PDO->prepare('INSERT INTO adm...')
+#1 {main}
+  thrown in /home/wqftutpg/conrq.krenx.in/database/seed.php on line 57
+[01-Aug-2026 21:15:08 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away in /home/wqftutpg/conrq.krenx.in/database/seed.php:57
+Stack trace:
+#0 /home/wqftutpg/conrq.krenx.in/database/seed.php(57): PDO->prepare('INSERT INTO adm...')
+#1 {main}
+  thrown in /home/wqftutpg/conrq.krenx.in/database/seed.php on line 57
+[01-Aug-2026 23:52:05 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND is_active=1 AND type IN ('supplier','both') ORDER BY name' at line 1 in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php:19
+Stack trace:
+#0 /home/wqftutpg/conrq.krenx.in/app/invoice_form.php(19): PDO->query()
+#1 {main}
+  thrown in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 19
+[01-Aug-2026 23:53:16 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND is_active=1 AND type IN ('supplier','both') ORDER BY name' at line 1 in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php:19
+Stack trace:
+#0 /home/wqftutpg/conrq.krenx.in/app/invoice_form.php(19): PDO->query()
+#1 {main}
+  thrown in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 19
+[01-Aug-2026 23:54:10 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND is_active=1 AND type IN ('supplier','both') ORDER BY name' at line 1 in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php:19
+Stack trace:
+#0 /home/wqftutpg/conrq.krenx.in/app/invoice_form.php(19): PDO->query()
+#1 {main}
+  thrown in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 19
+[02-Aug-2026 05:34:08 Asia/Kolkata] PHP Warning:  Undefined array key "REQUEST_METHOD" in /home/wqftutpg/conrq.krenx.in/login.php on line 9
+[02-Aug-2026 05:34:09 Asia/Kolkata] PHP Warning:  Undefined array key "REQUEST_METHOD" in /home/wqftutpg/conrq.krenx.in/admin/login.php on line 9
+[03-Aug-2026 16:18:59 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'price_type' in 'field list' in /home/wqftutpg/conrq.krenx.in/app/ajax_product_search.php:12
+Stack trace:
+#0 /home/wqftutpg/conrq.krenx.in/app/ajax_product_search.php(12): PDO->prepare()
+#1 {main}
+  thrown in /home/wqftutpg/conrq.krenx.in/app/ajax_product_search.php on line 12
+[03-Aug-2026 16:21:33 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 48
+[03-Aug-2026 16:22:28 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 48
+[03-Aug-2026 16:31:04 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 48
+[05-Aug-2026 15:31:25 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 48
+[05-Aug-2026 15:33:56 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 48
+[05-Aug-2026 15:54:11 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 48
+[05-Aug-2026 16:22:29 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 48
+[05-Aug-2026 16:22:35 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 48
+[07-Aug-2026 11:09:31 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 81
+[09-Aug-2026 11:21:48 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 81
+[13-Aug-2026 18:34:40 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 82
+[13-Aug-2026 18:47:39 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 82
+[13-Aug-2026 18:48:40 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 82
+[13-Aug-2026 18:49:12 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 82
+[13-Aug-2026 19:13:00 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 82
+[14-Aug-2026 14:38:00 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 85
+[14-Aug-2026 14:40:50 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 85
+[14-Aug-2026 14:43:22 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 85
+[08-Sep-2026 14:28:51 Asia/Kolkata] PHP Warning:  Undefined array key "online_order" in /home/wqftutpg/conrq.krenx.in/share.php on line 148
+[08-Sep-2026 14:28:55 Asia/Kolkata] PHP Warning:  Undefined array key "online_order" in /home/wqftutpg/conrq.krenx.in/share.php on line 148
+[17-Sep-2026 19:51:33 Asia/Kolkata] PHP Deprecated:  strcasecmp(): Passing null to parameter #1 ($string1) of type string is deprecated in /home/wqftutpg/conrq.krenx.in/app/invoice_form.php on line 126

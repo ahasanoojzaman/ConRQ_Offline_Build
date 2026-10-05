@@ -1,0 +1,65 @@
+name: Build Windows EXE (ConRQ)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Download PHP Desktop
+      run: |
+        Invoke-WebRequest -Uri "https://github.com/cztomczak/phpdesktop/releases/download/chrome-v72.1-rc/phpdesktop-chrome-72.1-php-7.1.33.zip" -OutFile phpdesktop.zip
+        Expand-Archive -Path phpdesktop.zip -DestinationPath .\phpdesktop
+        Remove-Item phpdesktop.zip
+
+    - name: Prepare Application Bundle
+      run: |
+        # Remove default www directory
+        Remove-Item -Recurse -Force .\phpdesktop\phpdesktop-chrome-72.1-php-7.1.33\www
+        
+        # Create new www directory and copy ConRQ files
+        New-Item -ItemType Directory -Force -Path .\phpdesktop\phpdesktop-chrome-72.1-php-7.1.33\www
+        
+        # Copy necessary app files to www (excluding build tools)
+        $exclude = @("github_trending", ".github", ".git", "phpdesktop", "php-desktop-settings.json")
+        Get-ChildItem -Exclude $exclude | Copy-Item -Destination .\phpdesktop\phpdesktop-chrome-72.1-php-7.1.33\www -Recurse -Container
+        
+        # Apply secure configuration settings
+        Copy-Item -Path .\php-desktop-settings.json -Destination .\phpdesktop\phpdesktop-chrome-72.1-php-7.1.33\settings.json -Force
+
+    - name: Compile and Bundle into Single Executable (SFX)
+      run: |
+        # Using 7zip to create an SFX archive that extracts to a secure temporary directory and runs silently
+        # This protects raw assets from being visible in the deployed folder structure.
+        cd .\phpdesktop\phpdesktop-chrome-72.1-php-7.1.33
+        
+        # Download standard 7z SFX module
+        Invoke-WebRequest -Uri "https://raw.githubusercontent.com/chrisant996/7z-sfx/master/7zS.sfx" -OutFile 7zS.sfx
+        
+        # Create configuration for SFX execution
+        Set-Content -Path config.txt -Value ';!@Install@!UTF-8!'
+        Add-Content -Path config.txt -Value 'Title="ConRQ App"'
+        Add-Content -Path config.txt -Value 'RunProgram="phpdesktop-chrome.exe"'
+        Add-Content -Path config.txt -Value 'GUIFlags="64"'
+        Add-Content -Path config.txt -Value ';!@InstallEnd@!'
+        
+        # Create 7z archive with maximum compression
+        7z a -mx=9 app.7z *
+        
+        # Bundle SFX stub, config, and archive into the final .exe binary
+        cmd /c "copy /b 7zS.sfx + config.txt + app.7z ConRQ_App.exe"
+        
+        Move-Item ConRQ_App.exe ..\..\ConRQ_App.exe
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ConRQ-Windows-Executable
+        path: ConRQ_App.exe
